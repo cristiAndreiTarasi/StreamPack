@@ -133,9 +133,9 @@ abstract class BaseScreenRecorderService(
                         stopSelf()
                     }
 
-                    override fun onSuccess() {
+                    override fun onSuccess(message: String) {
                         Logger.i(TAG, "Connection succeeded")
-                        onConnectionSuccessNotification()?.let { notify(it) }
+                        onConnectionSuccessNotification(message)?.let { notify(it) }
                     }
                 }
         } catch (e: Exception) {
@@ -214,9 +214,10 @@ abstract class BaseScreenRecorderService(
      *
      * You can override this method to customize the notification.
      */
-    protected open fun onConnectionSuccessNotification(): Notification? {
+    protected open fun onConnectionSuccessNotification(message: String): Notification? {
         return notificationUtils.createNotification(
             R.string.service_notification_connection_succeeded,
+            message,
             0,
             notificationIconResourceId
         )

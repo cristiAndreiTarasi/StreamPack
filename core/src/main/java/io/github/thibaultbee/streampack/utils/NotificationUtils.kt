@@ -59,6 +59,7 @@ class NotificationUtils(
 
     fun createNotification(
         @StringRes titleResourceId: Int,
+        message: String,
         @StringRes contentResourceId: Int,
         @DrawableRes iconResourceId: Int
     ): Notification {

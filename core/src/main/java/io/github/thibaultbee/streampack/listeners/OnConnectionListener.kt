@@ -37,5 +37,5 @@ interface OnConnectionListener {
     /**
      * Called when a connection just succeeded.
      */
-    fun onSuccess()
+    fun onSuccess(message: String)
 }

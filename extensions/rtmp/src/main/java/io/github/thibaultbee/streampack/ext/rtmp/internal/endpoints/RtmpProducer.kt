@@ -57,7 +57,7 @@ class RtmpProducer(
                 isOnError = false
                 socket.connect("$url live=1 flashver=FMLE/3.0\\20(compatible;\\20FMSc/1.0)")
                 _isConnected = true
-                onConnectionListener?.onSuccess()
+                onConnectionListener?.onSuccess("You are live.")
             } catch (e: Exception) {
                 socket = Rtmp()
                 _isConnected = false

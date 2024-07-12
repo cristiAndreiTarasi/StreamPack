@@ -15,6 +15,7 @@
  */
 package io.github.thibaultbee.streampack.ext.srt.internal.endpoints
 
+import android.util.Log
 import io.github.thibaultbee.srtdroid.Srt
 import io.github.thibaultbee.srtdroid.enums.Boundary
 import io.github.thibaultbee.srtdroid.enums.ErrorType
@@ -121,8 +122,9 @@ class SrtProducer(
 
                 isOnError = false
                 socket.connect(connection.host, connection.port)
-                onConnectionListener?.onSuccess()
+                onConnectionListener?.onSuccess("You are live.")
             } catch (e: Exception) {
+                Log.d("EXC", e.toString())
                 socket = Socket()
                 onConnectionListener?.onFailed(e.message ?: "Unknown error")
                 throw e

@@ -62,8 +62,9 @@ class PreviewViewModel(private val streamerManager: StreamerManager) : Observabl
             // Not needed as we catch startStream
         }
 
-        override fun onSuccess() {
+        override fun onSuccess(message: String) {
             Log.i(TAG, "Connection succeeded")
+            streamerError.postValue("Connection successful: $message")
         }
     }
 
